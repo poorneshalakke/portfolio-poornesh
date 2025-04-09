@@ -17,8 +17,8 @@
     }
 
     body {
-      background: linear-gradient(135deg, #1e2a44, #34495e, #5d8296); /* Subtle navy to slate gradient */
-      color: #ecf0f1;
+      background: linear-gradient(120deg, #0a192f, #1a3c34, #3b6978);
+      color: #e0e0e0;
       padding: 50px;
       line-height: 1.8;
       overflow-x: hidden;
@@ -32,15 +32,15 @@
 
     header h1 {
       font-size: 3.5rem;
-      background: linear-gradient(to right, #3498db, #7fcdea); /* Soft blue gradient */
+      background: linear-gradient(to right, #ff6f61, #ffb88c);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
     }
 
     header p {
       font-size: 1.3rem;
-      color: #bdc3c7;
+      color: #b0c4de;
       margin-top: 10px;
       animation: fadeIn 1.5s ease-out;
     }
@@ -50,8 +50,8 @@
       height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      border: 6px solid #3498db;
-      box-shadow: 0 0 25px rgba(52, 152, 219, 0.5);
+      border: 6px solid #ff6f61;
+      box-shadow: 0 0 30px rgba(255, 111, 97, 0.6);
       transition: transform 0.5s ease;
       animation: slideInFromTop 1s ease-out;
     }
@@ -61,27 +61,27 @@
     }
 
     section {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
       padding: 35px;
       margin-bottom: 40px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(52, 152, 219, 0.2);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 111, 97, 0.2);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       animation: fadeInUp 0.8s ease-out;
     }
 
     section:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(52, 152, 219, 0.3);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 50px rgba(255, 111, 97, 0.4);
     }
 
     section h2 {
       margin-bottom: 20px;
-      color: #7fcdea; /* Light blue accent */
+      color: #ffb88c;
       font-size: 2.2rem;
-      border-bottom: 3px solid #3498db;
+      border-bottom: 3px solid #ff6f61;
       display: inline-block;
       padding-bottom: 8px;
       text-transform: uppercase;
@@ -93,22 +93,22 @@
       text-align: center;
       margin-top: 60px;
       font-size: 1rem;
-      color: #bdc3c7;
+      color: #b0c4de;
       padding: 20px;
-      background: rgba(30, 42, 68, 0.9); /* Darker navy footer */
+      background: rgba(10, 25, 47, 0.8);
       border-radius: 10px;
       animation: fadeIn 1s ease-out;
     }
 
     a {
-      color: #7fcdea;
+      color: #ffb88c;
       text-decoration: none;
       transition: color 0.3s ease, transform 0.3s ease;
       position: relative;
     }
 
     a:hover {
-      color: #3498db;
+      color: #ff6f61;
       transform: translateX(3px);
     }
 
@@ -119,7 +119,7 @@
       height: 2px;
       bottom: -5px;
       left: 0;
-      background: #3498db;
+      background: #ff6f61;
       transition: width 0.3s ease;
     }
 
@@ -144,14 +144,14 @@
 
     ul li:before {
       content: "➤";
-      color: #3498db;
+      color: #ff6f61;
       position: absolute;
       left: 0;
     }
 
     .contact-icon {
       margin-right: 10px;
-      color: #7fcdea;
+      color: #ffb88c;
       transition: transform 0.3s ease;
     }
 
@@ -165,7 +165,7 @@
       animation: fadeIn 0.8s ease-out;
     }
 
-    /* Animations */
+    /* Simplified Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -231,21 +231,21 @@
     </ul>
   </section>
 
-  <section style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.15), rgba(127, 205, 234, 0.05)); padding: 30px; border-radius: 15px; max-width: 450px; margin: auto; box-shadow: 0 8px 30px rgba(0,0,0,0.25); backdrop-filter: blur(10px);">
-    <h2 style="text-align: center; color: #7fcdea; margin-bottom: 25px; font-size: 24px;">Get in Touch</h2>
+  <section style="background: linear-gradient(135deg, rgba(255, 111, 97, 0.15), rgba(255, 184, 140, 0.05)); padding: zagadki30px; border-radius: 20px; max-width: 450px; margin: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); backdrop-filter: blur(12px);">
+    <h2 style="text-align: center; color: #ffb88c; margin-bottom: 25px; font-size: 24px;">Get in Touch</h2>
   
     <p style="margin: 15px 0; display: flex; align-items: center; font-size: 1.1rem;">
-      <i class="fas fa-envelope contact-icon" style="margin-right: 12px; color: #3498db;"></i>
+      <i class="fas fa-envelope contact-icon" style="margin-right: 12px; color: #ff6f61;"></i>
       <a href="mailto:poornesh160@gmail.com">poornesh160@gmail.com</a>
     </p>
   
     <p style="margin: 15px 0; display: flex; align-items: center; font-size: 1.1rem;">
-      <i class="fas fa-phone contact-icon" style="margin-right: 12px; color: #7fcdea;"></i>
+      <i class="fas fa-phone contact-icon" style="margin-right: 12px; color: #ffb88c;"></i>
       <a href="tel:+918150836381">+91 8150836381</a>
     </p>
   
     <p style="margin: 15px 0; display: flex; align-items: center; font-size: 1.1rem;">
-      <i class="fas fa-file-alt contact-icon" style="margin-right: 12px; color: #3498db;"></i>
+      <i class="fas fa-file-alt contact-icon" style="margin-right: 12px; color: #ff6f61;"></i>
       <a href="https://drive.google.com/file/d/1m2V-LfAK440Ffqeec2GH56jpCQTvVGVY/view?usp=sharing" target="_blank">Explore Resume</a>
     </p>
   
