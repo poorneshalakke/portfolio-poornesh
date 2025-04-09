@@ -5,10 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Poornesh Portfolio Resume</title>
-  <meta charset="UTF-8" />
-  <title>Your Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Font Awesome CDN -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     * {
@@ -20,104 +17,295 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      padding: 40px;
-      line-height: 1.6;
+      background: linear-gradient(120deg, #0a192f, #1a3c34, #3b6978);
+      color: #e0e0e0;
+      padding: 50px;
+      line-height: 1.8;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background floating particles */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 111, 97, 0.1) 10%, transparent 10%);
+      background-size: 20px 20px;
+      animation: floatParticles 15s infinite linear;
+      pointer-events: none;
     }
 
     header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
+      animation: slideInFromTop 1s ease-out, glow 3s infinite;
     }
 
     header h1 {
-      font-size: 3rem;
-      margin-top: 20px;
-      background: linear-gradient(to right, #f39c12, #f9c74f);
+      font-size: 3.5rem;
+      background: linear-gradient(to right, #ff6f61, #ffb88c);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+      animation: pulseText 2s infinite, rainbowText 6s infinite;
     }
 
     header p {
-      font-size: 1.2rem;
-      color: #ddd;
+      font-size: 1.3rem;
+      color: #b0c4de;
+      margin-top: 10px;
+      animation: fadeIn 2s ease-in-out, sway 4s infinite;
     }
 
     .profile-pic {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #fff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      border: 6px solid #ff6f61;
+      box-shadow: 0 0 30px rgba(255, 111, 97, 0.6);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      animation: rotateIn 1.5s ease-out, float 4s infinite;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 0 50px rgba(255, 111, 97, 0.9);
     }
 
     section {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 111, 97, 0.2);
+      transition: all 0.4s ease;
+      animation: slideInFromLeft 1s ease-out, glowSection 3s infinite;
+    }
+
+    section:nth-child(even) {
+      animation: slideInFromRight 1s ease-out, glowSection 3s infinite;
     }
 
     section:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 50px rgba(255, 111, 97, 0.4);
     }
 
     section h2 {
-      margin-bottom: 15px;
-      color: #f9c74f;
-      font-size: 2rem;
-      border-bottom: 2px solid #f9c74f;
+      margin-bottom: 20px;
+      color: #ffb88c;
+      font-size: 2.2rem;
+      border-bottom: 3px solid #ff6f61;
       display: inline-block;
-      padding-bottom: 5px;
+      padding-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: bounceIn 1s ease-out, wave 2s infinite;
     }
 
     footer {
       text-align: center;
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: #aaa;
+      margin-top: 60px;
+      font-size: 1rem;
+      color: #b0c4de;
+      padding: 20px;
+      background: rgba(10, 25, 47, 0.8);
+      border-radius: 10px;
+      animation: fadeInUp 1.5s ease-out, pulseFooter 3s infinite;
     }
 
     a {
-      color: #f9c74f;
+      color: #ffb88c;
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
 
     a:hover {
-      color: #ff9f43;
+      color: #ff6f61;
+      transform: translateX(5px);
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: #ff6f61;
+      transition: width 0.3s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
     }
 
     ul {
       text-align: left;
-      margin-top: 10px;
-      padding-left: 20px;
+      margin-top: 15px;
+      padding-left: 25px;
     }
 
     ul li {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 20px;
+      opacity: 0;
+      animation: fadeInUp 0.5s ease forwards, swayLi 3s infinite;
+      animation-delay: calc(0.1s * var(--i));
     }
 
-    /* Icon styles */
+    ul li:before {
+      content: "➤";
+      color: #ff6f61;
+      position: absolute;
+      left: 0;
+      animation: spin 1s infinite, pulse 1.5s infinite;
+    }
+
     .contact-icon {
-      margin-right: 8px;
-      color: #f9c74f;
+      margin-right: 10px;
+      color: #ffb88c;
+      transition: transform 0.5s ease;
+      animation: bounce 2s infinite;
+    }
+
+    .contact-icon:hover {
+      transform: scale(1.5) rotate(360deg);
     }
 
     p {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      animation: fadeIn 1s ease-out;
     }
+
+    /* New Animations */
+    @keyframes floatParticles {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100vh); }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 111, 97, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(255, 111, 97, 0.6); }
+    }
+
+    @keyframes glowSection {
+      0%, 100% { border-color: rgba(255, 111, 97, 0.2); }
+      50% { border-color: rgba(255, 111, 97, 0.5); }
+    }
+
+    @keyframes rainbowText {
+      0% { background: linear-gradient(to right, #ff6f61, #ffb88c); -webkit-background-clip: text; }
+      50% { background: linear-gradient(to right, #ffb88c, #ff6f61); -webkit-background-clip: text; }
+      100% { background: linear-gradient(to right, #ff6f61, #ffb88c); -webkit-background-clip: text; }
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+    }
+
+    @keyframes swayLi {
+      0%, 100% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes pulseFooter {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    /* Existing Animations */
+    @keyframes slideInFromTop {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInFromLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInFromRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes rotateIn {
+      from { opacity: 0; transform: rotate(-180deg); }
+      to { opacity: 1; transform: rotate(0deg); }
+    }
+
+    @keyframes pulseText {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.3); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Apply delay to list items */
+    ul li:nth-child(1) { --i: 1; }
+    ul li:nth-child(2) { --i: 2; }
+    ul li:nth-child(3) { --i: 3; }
+    ul li:nth-child(4) { --i: 4; }
+    ul li:nth-child(5) { --i: 5; }
+    ul li:nth-child(6) { --i: 6; }
   </style>
 </head>
 
 <body>
   <header>
-    <img src="photo.jpg" alt="Poornesh Profile Picture" class="profile-pic" />
+    <img src="photo.JPG" alt="Poornesh Profile Picture" class="profile-pic" />
     <h1>Poornesh</h1>
     <p>Passionate Developer & Tech Enthusiast</p>
   </header>
@@ -125,7 +313,7 @@
   <section>
     <h2>About Me</h2>
     <p>
-I am Poornesh, a dedicated and highly motivated Frontend Web Developer with a passion for building responsive and scalable web applications. I am committed to continuously learning and exploring new technologies to enhance user experiences. Currently, I am working as a developer at Rectrix Technologies, where I actively contribute to exciting and impactful projects.
+      I am Poornesh, a dedicated and highly motivated Frontend Web Developer with a passion for building responsive and scalable web applications. I am committed to continuously learning and exploring new technologies to enhance user experiences. Currently, I am working as a developer at Rectrix Technologies, where I actively contribute to exciting and impactful projects.
     </p>
   </section>
 
@@ -141,24 +329,41 @@ I am Poornesh, a dedicated and highly motivated Frontend Web Developer with a pa
     </ul>
   </section>
 
-<section>
-  <h2>Projects</h2>
-  <ul>
-    <li>💻 Event Management System using MERN stack (React.js & Node.js)</li>
-    <li>🌐 Web Development Project using HTML, CSS, and JavaScript for my Native Place</li>
-    <li>🚀 Currently working on Exdion CSR and Promax product-based projects</li>
-  </ul>
-</section>
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li>💻 Event Management System using MERN stack (React.js & Node.js)</li>
+      <li>🌐 Web Development Project using HTML, CSS, and JavaScript for my Native Place</li>
+      <li>🚀 Currently working on Exdion CSR and Promax product-based projects</li>
+    </ul>
+  </section>
 
-<section>
-  <h2>Contact</h2>
-  <p><i class="fas fa-envelope contact-icon"></i>Email: <a href="mailto:poornesh160@gmail.com">poornesh160@gmail.com</a></p>
-  <p><i class="fas fa-phone contact-icon"></i>Contact: <a href="tel:+918150836381">+91 8150836381</a></p>
-  <p><i class="fas fa-file-alt contact-icon"></i>Resume: <a href="https://drive.google.com/file/d/1m2V-LfAK440Ffqeec2GH56jpCQTvVGVY/view?usp=sharing">View</a></p>
-  <p><i class="fab fa-github contact-icon"></i>GitHub: <a href="https://github.com/poorneshalakke">poorneshalakke</a></p>
-</section>
+  <section style="background: linear-gradient(135deg, rgba(255, 111, 97, 0.15), rgba(255, 184, 140, 0.05)); padding: 30px; border-radius: 20px; max-width: 450px; margin: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3); backdrop-filter: blur(12px);">
+    <h2 style="text-align: center; color: #ffb88c; margin-bottom: 25px; font-size: 24px;">Get in Touch</h2>
+  
+    <p style="margin: 15px 0; display: flex; align-items: center; font-size: 1.1rem;">
+      <i class="fas fa-envelope contact-icon" style="margin-right: 12px; color: #ff6f61;"></i>
+      <a href="mailto:poornesh160@gmail.com">poornesh160@gmail.com</a>
+    </p>
+  
+    <p style="margin: 15px 0; display: flex; align-items: center; font-size: 1.1rem;">
+      <i class="fas fa-phone contact-icon" style="margin-right: 12px; color: #ffb88c;"></i>
+      <a href="tel:+918150836381">+91 8150836381</a>
+    </p>
+  
+    <p style="margin: 15px 0; display: flex; align-items: center; font-size: 1.1rem;">
+      <i class="fas fa-file-alt contact-icon" style="margin-right: 12px; color: #ff6f61;"></i>
+      <a href="https://drive.google.com/file/d/1m2V-LfAK440Ffqeec2GH56jpCQTvVGVY/view?usp=sharing" target="_blank">Explore Resume</a>
+    </p>
+  
+    <p style="margin: 15px 0; display: flex; align-items: center; font-size: 1.1rem;">
+      <i class="fab fa-github contact-icon" style="margin-right: 12px;"></i>
+      <a href="https://github.com/poorneshalakke" target="_blank">GitHub: poorneshalakke</a>
+    </p>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Poornesh. All Rights Reserved.</p>
+    <p>© 2025 Poornesh. All Rights Reserved.</p>
   </footer>
 </body>
 
