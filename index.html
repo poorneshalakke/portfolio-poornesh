@@ -22,6 +22,19 @@
       color: #e2e8f0;
       overflow-x: hidden;
       line-height: 1.8;
+      position: relative;
+    }
+
+    /* Animated Background */
+    .bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      opacity: 0.8;
     }
 
     /* Header */
@@ -37,17 +50,14 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       z-index: 1000;
     }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #93c5fd;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: color 0.3s ease;
-      animation: logoPulse 2s ease-in-out infinite; /* Continuous animation */
+    .logo img {
+      height: 60px; /* Adjustable size */
+      width: auto;
+      transition: filter 0.3s ease; /* Changed to filter for image hover */
+      animation: floatLogo 4s ease-in-out infinite;
     }
-    .logo:hover {
-      color: #60a5fa;
+    .logo img:hover {
+      filter: brightness(1.2) drop-shadow(0 0 8px rgba(96, 165, 250, 0.7)); /* Hover effect */
     }
 
     /* Navigation */
@@ -73,7 +83,10 @@
       text-decoration: none;
       font-size: 1.1rem;
       position: relative;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.4s ease, text-shadow 0.4s ease;
+      opacity: 0;
+      animation: slideFadeIn 1s ease-out forwards;
+      animation-delay: calc(var(--index) * 0.2s);
     }
     nav a::after {
       content: '';
@@ -87,6 +100,8 @@
     }
     nav a:hover {
       color: #60a5fa;
+      transform: translateY(-3px);
+      text-shadow: 0 0 10px rgba(96, 165, 250, 0.7);
     }
     nav a:hover::after {
       width: 100%;
@@ -101,16 +116,25 @@
       text-align: center;
       position: relative;
       background: linear-gradient(45deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+      z-index: 1;
     }
     .hero-content h1 {
       font-size: 4rem;
       font-weight: 700;
       color: #f8fafc;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 4px solid #3b82f6;
+      animation: typewriter 3s steps(20) 1s forwards, waveText 5s ease-in-out infinite 3s;
     }
     .hero-content p {
       font-size: 1.6rem;
       color: #cbd5e1;
       margin: 20px 0;
+      animation: fadePulse 3s ease-in-out infinite;
+      opacity: 0;
+      animation-delay: 3.5s;
+      animation-fill-mode: forwards;
     }
     .hero-content .btn {
       background: #3b82f6;
@@ -121,20 +145,33 @@
       font-weight: 600;
       display: inline-block;
       margin: 10px;
-      min-width: 180px; /* Fixed minimum width for uniformity */
-      text-align: center; /* Center text within buttons */
+      min-width: 180px;
+      text-align: center;
       transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-      animation: buttonPulse 2s ease-in-out infinite; /* Continuous animation */
-      opacity: 0; /* Start hidden */
-    }
-    .hero-content .btn.visible {
-      opacity: 1;
-      animation: fadeInUp 0.8s ease-out forwards, buttonPulse 2s ease-in-out infinite;
+      animation: bounceFade 3s ease-in-out infinite;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation-delay: calc(var(--index) * 0.3s + 4s);
+      animation-fill-mode: forwards;
     }
     .hero-content .btn:hover {
       background: #2563eb;
-      transform: scale(1.1);
+      transform: scale(1.05);
       box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+    }
+    .hero-content .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: ripplePulse 4s ease-in-out infinite;
     }
 
     /* About Section */
@@ -144,6 +181,8 @@
       align-items: center;
       gap: 60px;
       background: #1e293b;
+      position: relative;
+      z-index: 1;
     }
     .about-img {
       flex: 1;
@@ -156,21 +195,20 @@
       border-radius: 50%;
       border: 6px solid #3b82f6;
       object-fit: cover;
-      animation: profileBounce 2s ease-in-out infinite; /* Continuous animation */
+      animation: floatImage 5s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      opacity: 0;
     }
     .about-text {
       flex: 2;
-      opacity: 0; /* Start hidden */
-    }
-    .about-text.visible {
-      opacity: 1;
-      animation: fadeInUp 0.8s ease-out forwards;
     }
     .about-text h2 {
       font-size: 2.8rem;
       color: #f8fafc;
       margin-bottom: 20px;
       position: relative;
+      animation: glowFade 4s ease-in-out infinite;
+      opacity: 0;
     }
     .about-text h2::after {
       content: '';
@@ -185,6 +223,9 @@
       color: #cbd5e1;
       font-size: 1.2rem;
       margin: 15px 0;
+      animation: slideFadeIn 1s ease-out forwards;
+      animation-delay: calc(var(--index) * 0.3s);
+      opacity: 0;
     }
 
     /* Skills Section */
@@ -192,11 +233,15 @@
       padding: 120px 60px;
       text-align: center;
       background: #0f172a;
+      position: relative;
+      z-index: 1;
     }
     #skills h2 {
       font-size: 2.8rem;
       color: #f8fafc;
       margin-bottom: 60px;
+      animation: glowFade 4s ease-in-out infinite;
+      opacity: 0;
     }
     .skills-grid {
       display: grid;
@@ -209,11 +254,9 @@
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0; /* Start hidden */
-    }
-    .skill-card.visible {
-      opacity: 1;
-      animation: fadeInUp 0.8s ease-out forwards;
+      animation: cardFloat 6s ease-in-out infinite;
+      animation-delay: calc(var(--index) * 0.5s);
+      opacity: 0;
     }
     .skill-card:hover {
       transform: scale(1.1);
@@ -223,11 +266,12 @@
       font-size: 2.8rem;
       color: #3b82f6;
       margin-bottom: 20px;
-      animation: iconBounce 2s ease-in-out infinite; /* Continuous animation */
+      animation: spinFade 5s linear infinite;
     }
     .skill-card h3 {
       font-size: 1.6rem;
       color: #f8fafc;
+      animation: glowFade 4s ease-in-out infinite;
     }
     .skill-card p {
       color: #cbd5e1;
@@ -238,12 +282,16 @@
     #projects {
       padding: 120px 60px;
       background: #1e293b;
+      position: relative;
+      z-index: 1;
     }
     #projects h2 {
       font-size: 2.8rem;
       color: #f8fafc;
       text-align: center;
       margin-bottom: 60px;
+      animation: glowFade 4s ease-in-out infinite;
+      opacity: 0;
     }
     .projects-grid {
       display: grid;
@@ -256,11 +304,9 @@
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
-      opacity: 0; /* Start hidden */
-    }
-    .project-card.visible {
-      opacity: 1;
-      animation: fadeInUp 0.8s ease-out forwards;
+      animation: cardFloat 5s ease-in-out infinite;
+      animation-delay: calc(var(--index) * 0.5s);
+      opacity: 0;
     }
     .project-card:hover {
       transform: scale(1.08);
@@ -294,6 +340,7 @@
     .project-overlay h3 {
       font-size: 1.6rem;
       color: #3b82f6;
+      animation: glowFade 4s ease-in-out infinite;
     }
     .project-overlay p {
       color: #cbd5e1;
@@ -305,11 +352,15 @@
       padding: 120px 60px;
       text-align: center;
       background: #0f172a;
+      position: relative;
+      z-index: 1;
     }
     #contact h2 {
       font-size: 2.8rem;
       color: #f8fafc;
       margin-bottom: 60px;
+      animation: glowFade 4s ease-in-out infinite;
+      opacity: 0;
     }
     .contact-form {
       max-width: 700px;
@@ -317,11 +368,9 @@
     }
     .form-group {
       margin-bottom: 25px;
-      opacity: 0; /* Start hidden */
-    }
-    .form-group.visible {
-      opacity: 1;
-      animation: fadeInUp 0.8s ease-out forwards;
+      animation: slideFadeInRotate 1.2s ease-out forwards;
+      animation-delay: calc(var(--index) * 0.3s);
+      opacity: 0;
     }
     .form-control {
       width: 100%;
@@ -349,16 +398,27 @@
       border: none;
       cursor: pointer;
       transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-      animation: buttonPulse 2s ease-in-out infinite; /* Continuous animation */
-      opacity: 0; /* Start hidden */
+      animation: bounceFade 3s ease-in-out infinite;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
     }
-    .btn-submit.visible {
-      opacity: 1;
-      animation: fadeInUp 0.8s ease-out forwards, buttonPulse 2s ease-in-out infinite;
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: ripplePulse 4s ease-in-out infinite;
     }
     .btn-submit:hover {
       background: #2563eb;
-      transform: scale(1.1);
+      transform: scale(1.05);
       box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
     }
     .social-links {
@@ -371,12 +431,9 @@
       color: #e2e8f0;
       font-size: 1.8rem;
       transition: color 0.3s ease, transform 0.3s ease;
-      animation: iconBounce 2s ease-in-out infinite; /* Continuous animation */
-      opacity: 0; /* Start hidden */
-    }
-    .social-links a.visible {
-      opacity: 1;
-      animation: fadeInUp 0.8s ease-out forwards, iconBounce 2s ease-in-out infinite;
+      animation: spinFade 5s linear infinite;
+      animation-delay: calc(var(--index) * 0.5s);
+      opacity: 0;
     }
     .social-links a:hover {
       color: #3b82f6;
@@ -390,97 +447,125 @@
       background: #0f172a;
       color: #94a3b8;
       font-size: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    footer p {
+      animation: glowFade 4s ease-in-out infinite;
+      opacity: 0;
     }
 
     /* Animations */
-    @keyframes fadeInUp {
+    @keyframes slideFadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    @keyframes buttonPulse {
-      0% { transform: scale(1); box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
-      50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(59, 130, 246, 0.7); }
-      100% { transform: scale(1); box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    @keyframes slideFadeInRotate {
+      0% { opacity: 0; transform: translateY(20px) rotate(-5deg); }
+      100% { opacity: 1; transform: translateY(0) rotate(0deg); }
     }
-    @keyframes profileBounce {
-      0% { transform: translateY(0); box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
-      50% { transform: translateY(-10px); box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
-      100% { transform: translateY(0); box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+    @keyframes floatLogo {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
     }
-    @keyframes iconBounce {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; border-right: none; }
     }
-    @keyframes logoPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    @keyframes waveText {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-5px) scale(1.02); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes fadePulse {
+      0% { opacity: 0.8; text-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+      50% { opacity: 1; text-shadow: 0 0 15px rgba(59, 130, 246, 0.7); }
+      100% { opacity: 0.8; text-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    }
+    @keyframes bounceFade {
+      0% { transform: translateY(0); opacity: 0.9; }
+      50% { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.9; }
+    }
+    @keyframes ripplePulse {
+      0% { width: 0; height: 0; opacity: 1; }
+      100% { width: 150px; height: 150px; opacity: 0; }
+    }
+    @keyframes floatImage {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes glowFade {
+      0% { text-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+      50% { text-shadow: 0 0 15px rgba(59, 130, 246, 0.7); }
+      100% { text-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    }
+    @keyframes cardFloat {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.02); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    @keyframes spinFade {
+      0% { transform: rotate(0deg) scale(1); opacity: 0.8; }
+      50% { transform: rotate(180deg) scale(1.1); opacity: 1; }
+      100% { transform: rotate(360deg) scale(1); opacity: 0.8; }
     }
 
     /* Responsive Design */
-  @media (max-width: 768px) {
-  /* Existing rules */
-  header { padding: 20px 30px; }
-  .logo { font-size: 1.5rem; }
-  .nav-toggle { display: block; }
-  nav {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100vh;
-    background: #0f172a;
-    padding: 70px 20px 20px;
-    z-index: 999;
-    transition: right 0.4s ease;
-  }
-  nav.active {
-    right: 0;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 25px;
-  }
-  #hero h1 { font-size: 2.5rem; }
-  #hero p { font-size: 1.3rem; }
-  #about, #skills, #projects, #contact { padding: 80px 30px; }
-  .about-img img { width: 200px; height: 200px; }
-  .hero-content .btn { min-width: 150px; }
-
-  /* New rules for About section */
-  #about {
-    flex-direction: column; /* Stack image and text vertically */
-    text-align: center; /* Center-align text for better mobile display */
-    gap: 30px; /* Reduce gap for mobile */
-  }
-  .about-img {
-    flex: none; /* Remove flex growth */
-    margin-bottom: 20px; /* Add spacing between image and text */
-  }
-  .about-text {
-    flex: none; /* Remove flex growth */
-  }
-  .about-text h2::after {
-    left: 50%; /* Center the underline */
-    transform: translateX(-50%); /* Adjust for centering */
-  }
-}
+    @media (max-width: 768px) {
+      header { padding: 20px 30px; }
+      .logo img { height: 50px; } /* Smaller logo on mobile */
+      .nav-toggle { display: block; }
+      nav {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100vh;
+        background: #0f172a;
+        padding: 70px 20px 20px;
+        z-index: 999;
+        transition: right 0.4s ease;
+      }
+      nav.active { right: 0; }
+      nav ul { flex-direction: column; gap: 25px; }
+      #hero h1 { font-size: 2.5rem; }
+      #hero p { font-size: 1.3rem; }
+      #about, #skills, #projects, #contact { padding: 80px 30px; }
+      .about-img img { width: 200px; height: 200px; }
+      .hero-content .btn { min-width: 150px; }
+      #about {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+      .about-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Animated Background -->
+  <canvas class="bg-canvas" id="bgCanvas"></canvas>
+
   <!-- Header -->
   <header>
-    <div class="logo">Poornesh</div>
+    <a href="#hero" class="logo">
+      <img src="poornesh.png" alt="Poornesh Logo">
+    </a>
     <button class="nav-toggle"><i class="fas fa-bars"></i></button>
     <nav>
       <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#hero" style="--index: 0;">Home</a></li>
+        <li><a href="#about" style="--index: 1;">About</a></li>
+        <li><a href="#skills" style="--index: 2;">Skills</a></li>
+        <li><a href="#projects" style="--index: 3;">Projects</a></li>
+        <li><a href="#contact" style="--index: 4;">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -490,8 +575,8 @@
     <div class="hero-content">
       <h1>Hello, I'm Poornesh</h1>
       <p>A Passionate Frontend Developer</p>
-      <a href="#about" class="btn">Learn More</a>
-      <a href="https://drive.google.com/file/d/1m2V-LfAK440Ffqeec2GH56jpCQTvVGVY/view?usp=sharing" target="_blank" class="btn">View Resume</a>
+      <a href="#about" class="btn" style="--index: 0;">Learn More</a>
+      <a href="https://drive.google.com/file/d/1m2V-LfAK440Ffqeec2GH56jpCQTvVGVY/view?usp=sharing" target="_blank" class="btn" style="--index: 1;">View Resume</a>
     </div>
   </section>
 
@@ -502,9 +587,9 @@
     </div>
     <div class="about-text">
       <h2>About Me</h2>
-      <p>I am Poornesh, a passionate Frontend Web Developer currently working with Rectrix Technologies. I specialize in creating seamless and responsive web applications.</p>
-      <p>My journey in web development is driven by a desire for continuous improvement and learning new technologies. I enjoy building innovative solutions that enhance user experiences.</p>
-      <p>With a strong foundation in modern frontend frameworks and tools, I aim to deliver high-quality, scalable, and visually appealing projects.</p>
+      <p style="--index: 0;">I am Poornesh, a passionate Frontend Web Developer currently working with Rectrix Technologies. I specialize in creating seamless and responsive web applications.</p>
+      <p style="--index: 1;">My journey in web development is driven by a desire for continuous improvement and learning new technologies. I enjoy building innovative solutions that enhance user experiences.</p>
+      <p style="--index: 2;">With a strong foundation in modern frontend frameworks and tools, I aim to deliver high-quality, scalable, and visually appealing projects.</p>
     </div>
   </section>
 
@@ -512,17 +597,17 @@
   <section id="skills">
     <h2>Skills & Technologies</h2>
     <div class="skills-grid">
-      <div class="skill-card">
+      <div class="skill-card" style="--index: 0;">
         <i class="fas fa-code"></i>
         <h3>Frontend Development</h3>
         <p>Expertise in HTML, CSS, JavaScript (ES6+), and frameworks like React and Next.js.</p>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" style="--index: 1;">
         <i class="fas fa-server"></i>
         <h3>Backend Basics</h3>
         <p>Knowledge of Python, Fast APIs, and databases SQL.</p>
       </div>
-      <div class="skill-card">
+      <div class="skill-card" style="--index: 2;">
         <i class="fas fa-mobile-alt"></i>
         <h3>Responsive Design</h3>
         <p>Crafting mobile-friendly and responsive layouts using Tailwind CSS and Material UI.</p>
@@ -534,7 +619,7 @@
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="project-card">
+      <div class="project-card" style="--index: 0;">
         <img src="event.jpg" alt="Event Management Web App">
         <div class="project-overlay">
           <h3>Event Management</h3>
@@ -542,7 +627,7 @@
           <p>MERN Stack | 2024</p>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" style="--index: 1;">
         <img src="native.jpg" alt="Native Place">
         <div class="project-overlay">
           <h3>Native Place</h3>
@@ -550,11 +635,11 @@
           <p>HTML CSS JS | 2022</p>
         </div>
       </div>
-      <div class="project-card">
+      <div class="project-card" style="--index: 2;">
         <img src="health.jpg" alt="Real-Time Chat Application">
         <div class="project-overlay">
           <h3>Promax and CSR</h3>
-           <p>Web App</p>
+          <p>Web App</p>
           <p>NextJS | 2025</p>
         </div>
       </div>
@@ -565,21 +650,21 @@
   <section id="contact">
     <h2>Get in Touch</h2>
     <form class="contact-form" action="https://formspree.io/f/xdkeykzk" method="POST">
-      <div class="form-group">
+      <div class="form-group" style="--index: 0;">
         <input type="text" class="form-control" name="name" placeholder="Your Name" required>
       </div>
-      <div class="form-group">
+      <div class="form-group" style="--index: 1;">
         <input type="email" class="form-control" name="email" placeholder="Your Email" required>
       </div>
-      <div class="form-group">
+      <div class="form-group" style="--index: 2;">
         <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
       </div>
       <button type="submit" class="btn-submit">Send Message</button>
     </form>
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/poornesh-bhandary-49b293226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/poorneshalakke" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:poornesh160@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/poornesh-bhandary-49b293226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="--index: 0;"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/poorneshalakke" target="_blank" style="--index: 1;"><i class="fab fa-github"></i></a>
+      <a href="mailto:poornesh160@gmail.com" style="--index: 2;"><i class="fas fa-envelope"></i></a>
     </div>
   </section>
 
@@ -590,6 +675,7 @@
 
   <!-- JavaScript for Functionality -->
   <script>
+    // Navigation Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('nav');
 
@@ -603,28 +689,100 @@
       });
     });
 
-    // Smooth scroll for "Learn More" button
+    // Smooth Scroll for "Learn More" Button
     document.querySelector('.hero-content .btn[href="#about"]').addEventListener('click', (e) => {
       e.preventDefault();
       document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Scroll-triggered visibility
+    // Enhanced Scroll-Triggered Animations
     const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.hero-content .btn, .about-text, .skill-card, .project-card, .form-group, .btn-submit, .social-links a');
-      elements.forEach(el => {
+      const elements = document.querySelectorAll(
+        '.about-img img, .about-text h2, .about-text p, #skills h2, .skill-card, #projects h2, .project-card, #contact h2, .form-group, .btn-submit, .social-links a, footer p'
+      );
+      elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         if (rect.top <= window.innerHeight * 0.9 && rect.bottom >= 0) {
-          el.classList.add('visible');
+          el.style.opacity = '1';
+          if (el.classList.contains('skill-card')) {
+            el.style.animation = 'cardFloat 6s ease-in-out infinite';
+          } else if (el.classList.contains('project-card')) {
+            el.style.animation = 'cardFloat 5s ease-in-out infinite';
+          } else if (el.classList.contains('form-group')) {
+            el.style.animation = 'slideFadeInRotate 1.2s ease-out forwards';
+          } else if (el.classList.contains('btn-submit')) {
+            el.style.animation = 'bounceFade 3s ease-in-out infinite';
+          } else if (el.tagName === 'A' && el.parentElement.classList.contains('social-links')) {
+            el.style.animation = 'spinFade 5s linear infinite';
+          }
         } else {
-          el.classList.remove('visible');
-          el.style.opacity = '0'; // Reset opacity when out of view
+          el.style.opacity = '0';
+          if (el.classList.contains('skill-card') || el.classList.contains('project-card') || 
+              el.classList.contains('form-group') || el.classList.contains('btn-submit') || 
+              el.tagName === 'A') {
+            el.style.animation = 'none';
+          }
         }
       });
     };
     window.addEventListener('scroll', animateOnScroll);
     window.addEventListener('load', animateOnScroll);
-  </script>
 
+    // Animated Background Canvas
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const waves = [];
+    class Wave {
+      constructor() {
+        this.amplitude = Math.random() * 50 + 20;
+        this.frequency = Math.random() * 0.02 + 0.01;
+        this.speed = Math.random() * 0.05 + 0.02;
+        this.yOffset = Math.random() * canvas.height;
+        this.color = `rgba(59, 130, 246, ${Math.random() * 0.1 + 0.05})`;
+      }
+      update(time) {
+        this.yOffset += this.speed;
+        if (this.yOffset > canvas.height) this.yOffset = -this.amplitude;
+      }
+      draw(time) {
+        ctx.beginPath();
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 2;
+        for (let x = 0; x < canvas.width; x++) {
+          const y = this.yOffset + this.amplitude * Math.sin(this.frequency * x + time);
+          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+    }
+
+    function initWaves() {
+      for (let i = 0; i < 5; i++) {
+        waves.push(new Wave());
+      }
+    }
+
+    let time = 0;
+    function animateWaves() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      time += 0.05;
+      waves.forEach(wave => {
+        wave.update(time);
+        wave.draw(time);
+      });
+      requestAnimationFrame(animateWaves);
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    initWaves();
+    animateWaves();
+  </script>
 </body>
 </html>
