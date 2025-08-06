@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poornesh | Frontend Developer</title>
-  <meta name="keywords" content="Frontend Developer, Poornesh, Web Development">
-  <meta name="description" content="Portfolio of Poornesh, a passionate Frontend Web Developer at Rectrix Technologies.">
+  <title>Poornesh A | Software Engineer</title>
+  <meta name="keywords" content="Frontend Developer, Poornesh, Software Engineer, Next.js, FastAPI, Web Development">
+  <meta name="description" content="Portfolio of Poornesh A, an Associate Software Engineer at Rectrix Technologies specializing in Next.js, FastAPI, and full-stack development.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Internal CSS -->
   <style>
     * {
       margin: 0;
@@ -16,7 +14,6 @@
       box-sizing: border-box;
       font-family: 'Arial', sans-serif;
     }
-
     body {
       background: linear-gradient(120deg, #0f172a, #1e293b);
       color: #e2e8f0;
@@ -24,8 +21,6 @@
       line-height: 1.8;
       position: relative;
     }
-
-    /* Animated Background */
     .bg-canvas {
       position: fixed;
       top: 0;
@@ -36,8 +31,6 @@
       background: linear-gradient(135deg, #0f172a, #1e293b);
       opacity: 0.8;
     }
-
-    /* Header */
     header {
       position: fixed;
       top: 0;
@@ -51,16 +44,14 @@
       z-index: 1000;
     }
     .logo img {
-      height: 60px; /* Adjustable size */
+      height: 60px;
       width: auto;
-      transition: filter 0.3s ease; /* Changed to filter for image hover */
+      transition: filter 0.3s ease;
       animation: floatLogo 4s ease-in-out infinite;
     }
     .logo img:hover {
-      filter: brightness(1.2) drop-shadow(0 0 8px rgba(96, 165, 250, 0.7)); /* Hover effect */
+      filter: brightness(1.2) drop-shadow(0 0 8px rgba(96, 165, 250, 0.7));
     }
-
-    /* Navigation */
     .nav-toggle {
       display: none;
       font-size: 1.6rem;
@@ -106,8 +97,6 @@
     nav a:hover::after {
       width: 100%;
     }
-
-    /* Hero Section */
     #hero {
       height: 100vh;
       display: flex;
@@ -173,8 +162,6 @@
       transform: translate(-50%, -50%);
       animation: ripplePulse 4s ease-in-out infinite;
     }
-
-    /* About Section */
     #about {
       padding: 120px 60px;
       display: flex;
@@ -227,8 +214,6 @@
       animation-delay: calc(var(--index) * 0.3s);
       opacity: 0;
     }
-
-    /* Skills Section */
     #skills {
       padding: 120px 60px;
       text-align: center;
@@ -277,8 +262,6 @@
       color: #cbd5e1;
       margin-top: 10px;
     }
-
-    /* Projects Section */
     #projects {
       padding: 120px 60px;
       background: #1e293b;
@@ -346,8 +329,6 @@
       color: #cbd5e1;
       font-size: 1.1rem;
     }
-
-    /* Contact Section */
     #contact {
       padding: 120px 60px;
       text-align: center;
@@ -439,8 +420,6 @@
       color: #3b82f6;
       transform: scale(1.2);
     }
-
-    /* Footer */
     footer {
       padding: 30px;
       text-align: center;
@@ -454,8 +433,6 @@
       animation: glowFade 4s ease-in-out infinite;
       opacity: 0;
     }
-
-    /* Animations */
     @keyframes slideFadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -512,11 +489,9 @@
       50% { transform: rotate(180deg) scale(1.1); opacity: 1; }
       100% { transform: rotate(360deg) scale(1); opacity: 0.8; }
     }
-
-    /* Responsive Design */
     @media (max-width: 768px) {
       header { padding: 20px 30px; }
-      .logo img { height: 50px; } /* Smaller logo on mobile */
+      .logo img { height: 50px; }
       .nav-toggle { display: block; }
       nav {
         position: fixed;
@@ -549,11 +524,7 @@
   </style>
 </head>
 <body>
-
-  <!-- Animated Background -->
   <canvas class="bg-canvas" id="bgCanvas"></canvas>
-
-  <!-- Header -->
   <header>
     <a href="#hero" class="logo">
       <img src="poornesh.png" alt="Poornesh Logo">
@@ -569,91 +540,81 @@
       </ul>
     </nav>
   </header>
-
-  <!-- Hero Section -->
   <section id="hero">
     <div class="hero-content">
-      <h1>Hello, I'm Poornesh</h1>
-      <p>A Passionate Frontend Developer</p>
-      <a href="#about" class="btn" style="--index: 0;">Learn More</a>
+      <h1>Hi, I'm Poornesh A</h1>
+      <p>Associate Software Engineer at Rectrix Technologies</p>
+      <a href="#about" class="btn" style="--index: 0;">Discover More</a>
       <a href="https://drive.google.com/file/d/1m2V-LfAK440Ffqeec2GH56jpCQTvVGVY/view?usp=sharing" target="_blank" class="btn" style="--index: 1;">View Resume</a>
     </div>
   </section>
-
-  <!-- About Section -->
   <section id="about">
     <div class="about-img">
       <img src="photo.jpg" alt="Poornesh Profile Picture">
     </div>
     <div class="about-text">
       <h2>About Me</h2>
-      <p style="--index: 0;">I am Poornesh, a passionate Frontend Web Developer currently working with Rectrix Technologies. I specialize in creating seamless and responsive web applications.</p>
-      <p style="--index: 1;">My journey in web development is driven by a desire for continuous improvement and learning new technologies. I enjoy building innovative solutions that enhance user experiences.</p>
-      <p style="--index: 2;">With a strong foundation in modern frontend frameworks and tools, I aim to deliver high-quality, scalable, and visually appealing projects.</p>
+      <p style="--index: 0;">I'm Poornesh A, an Associate Software Engineer at Rectrix Technologies in Bengaluru. With 8 months of experience, I specialize in building responsive web applications using Next.js, FastAPI, and modern frontend tools.</p>
+      <p style="--index: 1;">Originally from Hathyadka, Karnataka, I grew up in a modern home surrounded by coconut and banana plantations, blending traditional values with a passion for technology. My journey is driven by continuous learning and creating user-focused solutions.</p>
+      <p style="--index: 2;">Beyond coding, I enjoy running, kabaddi, and volleyball. I’m committed to personal growth, having successfully quit smoking in June 2025 to prioritize my health.</p>
     </div>
   </section>
-
-  <!-- Skills Section -->
   <section id="skills">
     <h2>Skills & Technologies</h2>
     <div class="skills-grid">
       <div class="skill-card" style="--index: 0;">
         <i class="fas fa-code"></i>
         <h3>Frontend Development</h3>
-        <p>Expertise in HTML, CSS, JavaScript (ES6+), and frameworks like React and Next.js.</p>
+        <p>Proficient in Next.js, React, TypeScript, JavaScript (ES6+), HTML, CSS, Tailwind CSS, and Material UI for building responsive, modern interfaces.</p>
       </div>
       <div class="skill-card" style="--index: 1;">
         <i class="fas fa-server"></i>
-        <h3>Backend Basics</h3>
-        <p>Knowledge of Python, Fast APIs, and databases SQL.</p>
+        <h3>Backend Development</h3>
+        <p>Skilled in Python, FastAPI, Pydantic models, and PostgreSQL, with experience in building and deploying APIs using Swagger UI.</p>
       </div>
       <div class="skill-card" style="--index: 2;">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>Responsive Design</h3>
-        <p>Crafting mobile-friendly and responsive layouts using Tailwind CSS and Material UI.</p>
+        <i class="fas fa-tools"></i>
+        <h3>Tools & DevOps</h3>
+        <p>Experienced with Git, GitHub, Bitbucket, Docker, Jira, and full-stack deployment workflows for efficient development.</p>
       </div>
     </div>
   </section>
-
-  <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="project-card" style="--index: 0;">
-        <img src="event.jpg" alt="Event Management Web App">
+        <img src="event.jpg" alt="Exdion Promax">
         <div class="project-overlay">
-          <h3>Event Management</h3>
-          <p>Web App</p>
-          <p>MERN Stack | 2024</p>
+          <h3>Exdion Promax</h3>
+          <p>Web Application</p>
+          <p>Next.js, FastAPI, PostgreSQL | 2024</p>
         </div>
       </div>
       <div class="project-card" style="--index: 1;">
-        <img src="native.jpg" alt="Native Place">
+        <img src="native.jpg" alt="Exdion Cash App">
         <div class="project-overlay">
-          <h3>Native Place</h3>
-          <p>Web Site</p>
-          <p>HTML CSS JS | 2022</p>
+          <h3>Exdion Cash App</h3>
+          <p>Web Application</p>
+          <p>Next.js, FastAPI, PostgreSQL | 2024</p>
         </div>
       </div>
       <div class="project-card" style="--index: 2;">
-        <img src="health.jpg" alt="Real-Time Chat Application">
+        <img src="health.jpg" alt="Exdion RTC">
         <div class="project-overlay">
-          <h3>Promax and CSR</h3>
-          <p>Web App</p>
-          <p>NextJS | 2025</p>
+          <h3>Exdion RTC</h3>
+          <p>R&D Chatbot App</p>
+          <p>Next.js, react-chatbot-kit | 2025</p>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Contact Section -->
   <section id="contact">
     <h2>Get in Touch</h2>
     <form class="contact-form" action="https://formspree.io/f/xdkeykzk" method="POST">
       <div class="form-group" style="--index: 0;">
         <input type="text" class="form-control" name="name" placeholder="Your Name" required>
       </div>
-      <div class="form-group" style="--index: 1;">
+      <div class="form-group" style="--index: ()\n1;">
         <input type="email" class="form-control" name="email" placeholder="Your Email" required>
       </div>
       <div class="form-group" style="--index: 2;">
@@ -662,40 +623,29 @@
       <button type="submit" class="btn-submit">Send Message</button>
     </form>
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/poornesh-bhandary-49b293226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="--index: 0;"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/poornesh-bhandary-49b293226" target="_blank" style="--index: 0;"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/poorneshalakke" target="_blank" style="--index: 1;"><i class="fab fa-github"></i></a>
       <a href="mailto:poornesh160@gmail.com" style="--index: 2;"><i class="fas fa-envelope"></i></a>
     </div>
   </section>
-
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Poornesh. All Rights Reserved.</p>
+    <p>© 2025 Poornesh A. All Rights Reserved.</p>
   </footer>
-
-  <!-- JavaScript for Functionality -->
   <script>
-    // Navigation Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('nav');
-
     navToggle.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
-
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('active');
       });
     });
-
-    // Smooth Scroll for "Learn More" Button
     document.querySelector('.hero-content .btn[href="#about"]').addEventListener('click', (e) => {
       e.preventDefault();
       document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
     });
-
-    // Enhanced Scroll-Triggered Animations
     const animateOnScroll = () => {
       const elements = document.querySelectorAll(
         '.about-img img, .about-text h2, .about-text p, #skills h2, .skill-card, #projects h2, .project-card, #contact h2, .form-group, .btn-submit, .social-links a, footer p'
@@ -717,8 +667,8 @@
           }
         } else {
           el.style.opacity = '0';
-          if (el.classList.contains('skill-card') || el.classList.contains('project-card') || 
-              el.classList.contains('form-group') || el.classList.contains('btn-submit') || 
+          if (el.classList.contains('skill-card') || el.classList.contains('project-card') ||
+              el.classList.contains('form-group') || el.classList.contains('btn-submit') ||
               el.tagName === 'A') {
             el.style.animation = 'none';
           }
@@ -727,13 +677,10 @@
     };
     window.addEventListener('scroll', animateOnScroll);
     window.addEventListener('load', animateOnScroll);
-
-    // Animated Background Canvas
     const canvas = document.getElementById('bgCanvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     const waves = [];
     class Wave {
       constructor() {
@@ -758,13 +705,11 @@
         ctx.stroke();
       }
     }
-
     function initWaves() {
       for (let i = 0; i < 5; i++) {
         waves.push(new Wave());
       }
     }
-
     let time = 0;
     function animateWaves() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -775,12 +720,10 @@
       });
       requestAnimationFrame(animateWaves);
     }
-
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
-
     initWaves();
     animateWaves();
   </script>
